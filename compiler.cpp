@@ -4,13 +4,13 @@ std::string calculation(double, double, char);
 
 std::string compiler(std::string input_row)
 {
-	if (input_row.find_first_of(OPERATIONS, 1) == std::string::npos)
+	if (input_row.find_first_of(OPERATIONS, 1) == std::string::npos) //recursion exit condition
 		return input_row;
 
+	//gets the posions of the separators (space)
 	int pos[3];
-
-	pos[0] = input_row.find_first_of(OPERATIONS);
-	while (( input_row[pos[0] + 1] != ' ' ) and ( pos[0] != input_row.size() - 1))
+	pos[0] = input_row.find_first_of(OPERATIONS); //searches for operator
+	while (( input_row[pos[0] + 1] != ' ' ) and ( pos[0] != input_row.size() - 1)) //eliminates the choice of unary minus
 	{
 		pos[0] = input_row.find_first_of(OPERATIONS, pos[0] + 1);
 	}

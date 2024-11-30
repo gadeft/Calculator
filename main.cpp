@@ -4,7 +4,6 @@
 
 #include "reverse_notation.cpp"
 #include "preprocess.cpp"
-#include "funct_lib.cpp"
 #include "compiler.cpp"
 
 int main()
@@ -12,14 +11,11 @@ int main()
 	std::string row;
 	std::cout << "Enter a row: " << std::endl;
 	getline(std::cin, row);
-	std::cout << "The row                   " << row << std::endl << std::endl;
-
+//deletes extra characters
 	row = preprocess(row);
-	std::cout << "After prepocessing        " << row << std::endl << std::endl;
-
+//changes the expression in reverse polak notation
 	row = reverse_notation(row);
-	std::cout << "After reverse notation    " << row << std::endl << std::endl;
-
+//calculates the expression
 	row = compiler(row);
-	std::cout << "After compilation         " << row << std::endl << std::endl;
+	std::cout << "The result is " << row << std::endl;
 }
